@@ -32,7 +32,7 @@ use_bpm get(:bpm)
 with_fx :gverb, mix: 0.5, spread: 0.5, room: 10, damp: 0.5, release: 0.3 do
   with_fx :flanger, mix: 1, decay: fxFlangDecay, feedback: fxFlangFeedback, phase: 2, wave: 3, depth: fxFlangDepth do
     with_fx :bitcrusher, mix: 1, sample_rate: fxSampleRate, bits: 16 do
-      with_fx :wobble, phase_offset: 0.5, phase: 1, filter: 0, mix: 1, cutoff_min: 10, cutoff_max: 80, res: 0.75, wave: 3 do
+      with_fx :wobble, phase_offset: 0.5, phase: (1.0 / lfo), filter: 0, mix: 1, cutoff_min: 10, cutoff_max: 80, res: 0.75, wave: 3 do
         live_loop :synths do
           use_synth :square
           play wtPitch, amp: wtAmplitude, release: (wtRelease / lfo)
