@@ -14,13 +14,12 @@ beatsperminute = 140
 
 #Synth settings
 
-lfo = 1
+lfo = 1 # Value ranging from 0 to 2 (if integer)
 
-wtPitch = 28
+wtPitch = 28 # Recommended from 25 to 35
 wtRelease = 0.7
-wtAmplitude = 2
 
-fxSampleRate = 2000
+fxSampleRate = 2000 # Recommended from 1500 to 4000
 fxFlangDepth = -2
 fxFlangDecay = 2
 fxFlangFeedback = 0.7
@@ -38,7 +37,7 @@ with_fx :gverb, mix: 0.5, spread: 0.5, room: 10, damp: 0.5, release: 0.3 do
       with_fx :wobble, phase_offset: 0.5, phase: (1.0 / lfo), filter: 0, mix: 1, cutoff_min: 10, cutoff_max: 80, res: 0.75, wave: 3 do
         live_loop :synths do
           use_synth :square
-          play wtPitch, amp: wtAmplitude, release: (wtRelease / lfo)
+          play wtPitch, amp: 2, release: (wtRelease / lfo)
           wait (1.0 / lfo)
         end
       end
