@@ -11,6 +11,7 @@
 
 volume = 2
 beatsperminute = 140
+extraWaitTime = 0
 
 #Synth settings
 
@@ -41,7 +42,7 @@ with_fx :gverb, mix: 0.5, spread: 0.5, room: 10, damp: 0.5, release: 0.3 do
         live_loop :synths do
           use_synth :square
           play wtPitch, amp: 2, release: (wtRelease / lfoMultiplication)
-          wait (1.0 / lfoMultiplication)
+          wait ((1.0 / lfoMultiplication) + extraWaitTime)
         end
       end
     end
