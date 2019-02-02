@@ -10,7 +10,7 @@
 #General settings
 
 volume = 2
-beatsperminute = 140
+beatsPerMinute = 140
 extraWaitTime = 0
 
 #Synth settings
@@ -30,7 +30,7 @@ fxFlangWavetype = 3 # Value from 1, 2 or 3
 #--------------------------------------------------------------------------------#
 
 set_volume! volume
-set :bpm , beatsperminute
+set :bpm , beatsPerMinute
 use_bpm get(:bpm)
 fxCutoffMultiplication = (1 + fxCutoffMultiplier)
 fxSampleRateMultiplication = (fxSampleRate * 1000)
