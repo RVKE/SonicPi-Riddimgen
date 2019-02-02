@@ -5,14 +5,21 @@
 #   |_|\___/_| \__, \___|_||_|
 #              |___/
 
-set_volume! 2
+#General settings
 
-set :bpm , 140
-use_bpm get(:bpm)
+volume = 2
+beatsperminute = 140
+
+#Synth settings
 
 sampleRate = 2000
 synthPitch = 28
 synthDepth = -2
+
+
+set_volume! volume
+set :bpm , beatsperminute
+use_bpm get(:bpm)
 
 with_fx :gverb, spread: 0.5, room: 10, mix: 0.5, damp: 0.5, release: 0.3 do
   with_fx :flanger, decay: 2, feedback: 0.7, mix: 1, phase: 2, wave: 3, depth: synthDepth do
