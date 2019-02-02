@@ -9,11 +9,17 @@
 
 volume = 2
 beatsperminute = 140
+waitTime = 1
 
 #Synth settings
 
+lfo = 1
+
+wtPitch = 28
+wtRelease = 0.7
+wtAmplitude = 2
+
 sampleRate = 2000
-synthPitch = 28
 synthDepth = -2
 
 
@@ -27,8 +33,8 @@ with_fx :gverb, spread: 0.5, room: 10, mix: 0.5, damp: 0.5, release: 0.3 do
       with_fx :wobble, phase_offset: 0.5, phase: 1, filter: 0, mix: 1, cutoff_min: 10, cutoff_max: 80, res: 0.75, wave: 3 do
         live_loop :synths do
           use_synth :square
-          play synthPitch, amp: 2, cutoff: 100, release: 0.7
-          wait 1
+          play wtPitch, amp: wtAmplitude, release: wtRelease
+          wait waitTime
         end
       end
     end
