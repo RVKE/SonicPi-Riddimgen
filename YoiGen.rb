@@ -17,7 +17,7 @@ extraWaitTime = 0
 
 lfo = 4.0 # Value ranging above 0 (MUST BE A FLOAT)
 
-wtPitch = 8 # Recommended from 0 to 10
+wtPitch = -0 # Recommended from -5 to 10
 wtRelease = 0.7
 
 fxSampleRate = 2 # Recommended from 1.5 to 3.5
@@ -35,7 +35,7 @@ use_bpm get(:bpm)
 fxCutoffMultiplication = (1 + fxCutoffMultiplier)
 fxSampleRateMultiplication = (fxSampleRate * 1000)
 lfoMultiplication = (lfo / 4)
-wtPitchMultiplication = (20 + wtPitch)
+wtPitchMultiplication = (28 + wtPitch)
 with_fx :gverb, mix: 0.5, spread: 0.5, room: 10, damp: 0.5, release: 0.3 do
   with_fx :flanger, mix: 1, decay: fxFlangDecay, feedback: fxFlangFeedback, phase: (2 / lfoMultiplication), wavetype: fxFlangWavetype, depth: fxFlangDepth do
     with_fx :bitcrusher, mix: 1, sample_rate: fxSampleRateMultiplication, bits: 16 do
