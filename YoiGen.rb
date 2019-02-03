@@ -17,7 +17,7 @@ extraWaitTime = 0
 
 lfo = 4.0 # Value ranging above 0 (MUST BE A FLOAT)
 
-wtPitch = -0 # Recommended from -5 to 10
+wtPitch = 0 # Recommended from -5 to 10
 wtRelease = 0.7
 wtEnableX2 = 1
 wtDetuneMultiplier = 1.5
@@ -41,7 +41,7 @@ wtPitchMultiplication = (28 + wtPitch)
 with_fx :gverb, mix: 0.5, spread: 0.5, room: 10, damp: 0.5, release: 0.3 do
   with_fx :flanger, mix: 1, decay: fxFlangDecay, feedback: fxFlangFeedback, phase: (2 / lfoMultiplication), wavetype: fxFlangWavetype, depth: fxFlangDepth do
     with_fx :bitcrusher, mix: 1, sample_rate: fxSampleRateMultiplication, bits: 16 do
-      with_fx :wobble, phase_offset: 0.5, phase: (1.0 / lfoMultiplication), filter: 0, mix: 1, cutoff_min: (5 * fxCutoffMultiplication), cutoff_max: (64.5 * fxCutoffMultiplication), res: 0.75, wave: 3 do
+      with_fx :wobble, mix: 1, phase_offset: 0.5, phase: (1.0 / lfoMultiplication), filter: 0, cutoff_min: (5 * fxCutoffMultiplication), cutoff_max: (64.5 * fxCutoffMultiplication), res: 0.75, wave: 3 do
         live_loop :synths do
           use_synth :square
           play wtPitchMultiplication, amp: 2, release: (wtRelease / lfoMultiplication)
