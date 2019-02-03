@@ -19,6 +19,8 @@ lfo = 4.0 # Value ranging above 0 (MUST BE A FLOAT)
 
 wtPitch = -0 # Recommended from -5 to 10
 wtRelease = 0.7
+wtEnableX2 = 1
+wtDetuneMultiplier = 1.5
 
 fxSampleRate = 2 # Recommended from 1.5 to 3.5
 fxCutoffMultiplier = 0.24 # Value ranging from 0 to 1
@@ -43,6 +45,9 @@ with_fx :gverb, mix: 0.5, spread: 0.5, room: 10, damp: 0.5, release: 0.3 do
         live_loop :synths do
           use_synth :square
           play wtPitchMultiplication, amp: 2, release: (wtRelease / lfoMultiplication)
+          if wtEnableX2 == 1 then
+            play (wtPitchMultiplication + 0.1 * wtDetuneMultiplier), amp: 2, release: (wtRelease / lfoMultiplication)
+          end
           wait ((1.0 / lfoMultiplication) + extraWaitTime)
         end
       end
