@@ -3,6 +3,7 @@ Riddim generator by R4KE using Sonic Pi.
 
 ------------------------------------------------------------------------------------------
 How to use Yoi Gen
+
 Change the values of the variables in the upper section of the script to change the synth.
 The variables are sorted in general settings and synth settings.
 
